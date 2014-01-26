@@ -133,7 +133,7 @@ There are no spaces (or line continuations) within the entire PART.
 The following rules apply:
 
 - `partname` can be the name of a primitive or of another shape. In the latter case, the other shape acts as a _macro_, expanding its own primitives within the shape being defined. For example:
-
+  
       shape foo line0,0,10,10
       shape bar foo
 
@@ -147,21 +147,21 @@ The following rules apply:
 - Arguments are separated from each other by a comma, but no spaces.
 
 - The _positional_ arguments (i.e., the arguments whose meaning derives from their index in the list of arguments) of a primitive are appended to the name of the primitive *without any separating spaces or other characters*. For example:
-
+  
       shape label text0,50
 
   Positional arguments are almost always coordinates, distances, or angles.
 
 - The _key_-_value_ arguments (i.e., the arguments whose meaning derives from the key string paired with the value), if any, are appended after the positional arguments. They may occur in any order. The key and value are separated by a colon. For example:
-
+  
       shape label text0,50,anchor:c,justify:center,width:40,text:Untitled,fc:0
 
 - In some cases, a single argument must be used to designate a list. In those cases, the "+" character is used to separate the values. For example, as an argument to a line primitive, the following denotes a list of three numbers, 10, 8, and 6, as the value for the arrowshape option:
-
+  
       shape arrow line0,0,*0,0,arrow:last,arrowshape:10+8+6
 
 - If only key-value arguments are present, use a comma to separate the first argument from the name of the shape:
-
+  
       shape car carbox,fc:red
 
 - In some cases, a value might need to include spaces (text, for example). In that case, use a parameter for that value and use the `param` command to set the actual value. See the `text` command entry.
@@ -185,7 +185,7 @@ Parametrized shapes can be used as macros inside of shape definitions, in which 
       shape two_boxes box-20,-10 box10,20
       add two_boxes 3 - 100 30 50 0
 
-Paramters can be passed to a macro as well as to a primitive:
+Parameters can be passed to a macro as well as to a primitive:
 
       shape box rect*0,*0,*1,*1
       shape two_boxes box-20,*0 box*0,20
@@ -297,7 +297,7 @@ The primitives are the basic shapes from which user-defined shapes are built.
 
 Draw an arc-based shape, which may be a pieslice, a chord region (between a chord and the arc), or a true arc (segment of a circle or oval).
 
-The point X Y is the center, W is width, H is height.
+The point `X Y` is the center, `W` is width, `H` is height.
 
 *Note that this differs from Tk's arc command,* whose inputs are two points: "two diagonally opposite corners of a rectangular region enclosing the oval". It's generally easier to work with center and height/width. Rotation may look strange if width != height (this is because the rectangular region is still used internally, and Tk doesn't rotate rectangles).
 
@@ -317,7 +317,7 @@ See http://www.tcl.tk/man/tcl8.4/TkCmd/canvas.htm#M119
 
 Draw a line or other one-dimensional curve.
 
-The curve follows the sequence of points X1 Y1, X2 Y2, ....
+The curve follows the sequence of points `X1 Y1, X2 Y2, ....`
 
 Options (in addition to the generic options) are:
 
@@ -340,7 +340,7 @@ See http://www.tcl.tk/man/tcl8.4/TkCmd/canvas.htm#M139
 
 Draws a circle or oval.
 
-The points X1 Y1 and X2 Y2 define the diagonally opposite corners of the bounding box of the oval.
+The points `X1 Y1` and `X2 Y2` define the diagonally opposite corners of the bounding box of the oval.
 
 There are no options other than the generic options.
 
@@ -352,7 +352,7 @@ See http://www.tcl.tk/man/tcl8.4/TkCmd/canvas.htm#M146
 
 Draws a rectangle.
 
-The points X1 Y1 and X2 Y2 define the diagonally opposite corners.
+The points `X1 Y1` and `X2 Y2` define the diagonally opposite corners.
 
 *Note: A rect is not rotatable. Use a polygon instead.*
 
@@ -366,7 +366,7 @@ See http://www.tcl.tk/man/tcl8.4/TkCmd/canvas.htm#M151
 
 Draw a polygon or closed curve.
 
-The edges or curve segments follow the sequence of points X1 Y1, X2 Y2, .... and the last point is connected to the first.
+The edges or curve segments follow the sequence of points `X1 Y1, X2 Y2, ....` and the last point is connected to the first.
 
 Options (in addition to the generic options) are:
 
@@ -421,7 +421,7 @@ See http://www.tcl.tk/man/tcl8.4/TkCmd/canvas.htm#M134
 
 *`polyboxDX,DY`*
 
-Draws a rotatable rectangle extending DX units on each side of the Y axis, and extending DY units above and below the X axis.
+Draws a rotatable rectangle extending `DX` units on each side of the Y axis, and extending `DY` units above and below the X axis.
 
 Not a Tk primitive, but a simple poly-derived shape that can be used to draw a rectangle with rotation. This doesn't have an offset parameter. If the rectangle needs to be offset from the shape origin, use a polygon.
 
@@ -434,21 +434,21 @@ There are no options other than the generic options.
 
 Add an object to the canvas. The shape of the object is determined by the SHAPE_NAME, which must have been defined using the `shape` command.
 
-The ID must be a unique nonnegative integer in the range 0..2^32-1. If an object with that ID already exists (with any shape), the new object will replace the existing object.
+The `ID` must be a unique nonnegative integer in the range 0..2^32-1. If an object with that `ID` already exists (with any shape), the new object will replace the existing object.
 
-FLAGS is a string which is currently unused but will be used to set various flags (such as clickable and draggable).
+`FLAGS` is a string which is currently unused but will be used to set various flags (such as clickable and draggable).
 
-LAYER is a nonnegative integer in the range 0..2^32-1 which specifies the drawing order. Higher numbers cause objects to be drawn on top of objects with lower layer numbers.
+`LAYER` is a nonnegative integer in the range 0..2^32-1 which specifies the drawing order. Higher numbers cause objects to be drawn on top of objects with lower layer numbers.
 
-The X Y and R parameters are floating point signed decimal numbers describing the global coordinates and rotation of the object. These numbers define the origin and rotation that are used to draw the primitives of SHAPE_NAME. See the `moveto` and `rot` commands.
+The `X` `Y` and `R` parameters are floating point signed decimal numbers describing the global coordinates and rotation of the object. These numbers define the origin and rotation that are used to draw the primitives of `SHAPE_NAME`. See the `moveto` and `rot` commands.
 
-The PARAM parameters are as described for the `param` command. A PARAM given in the add command cannot include spaces. However, a PARAM given with the param command _can_ include spaces.
+The `PARAM` parameters are as described for the `param` command. A `PARAM` given in the add command cannot include spaces. However, a `PARAM` given with the `param` command _can_ include spaces.
 
-Only the PARAM fields are optional--all others are required.
+Only the `PARAM` fields are optional--all others are required.
 
 *`del ID`*
 
-Deletes the object with the specified ID from the canvas.
+Deletes the object with the specified `ID` from the canvas.
 
 *`delete_all`*
 
@@ -456,15 +456,15 @@ Deletes all objects. Does not delete shape definitions.
 
 *`moveto ID X Y`*
 
-Move the object with the specified ID to canvas coordinates X Y. (The coordinate system is left handed unless the --flip command line option is used.)
+Move the object with the specified `ID` to canvas coordinates `X` `Y`. (The coordinate system is left handed unless the --flip command line option is used.)
 
 *`rot ID R`*
 
-Rotate the object with the specified ID to R degrees (absolute, not relative to current rotation). (Uses radians if the --radians command line option is given.)
+Rotate the object with the specified `ID` to `R` degrees (absolute, not relative to current rotation). (Uses radians if the --radians command line option is given.)
 
 *`param ID N VALUE`*
 
-Set the N-th parameter (index starting from 0) of object ID to VALUE. Params can be used to control many aspects of a shape, including colors, dimensions, offsets, line characteristics, boolean flags, text, etc.
+Set the N-th parameter (index starting from 0) of object `ID` to `VALUE`. Params can be used to control many aspects of a shape, including colors, dimensions, offsets, line characteristics, boolean flags, text, etc.
 
 It is not possible to modify the flags, layer, or shape--use an add command to do that (if you add an object with the same ID as before, the old object will be deleted).
 
@@ -512,19 +512,19 @@ Tkar sends back outputs as the result of user interaction. These output commands
 
 *`drag DRAG_ID X Y`*
 
-User has dragged the object with id DRAG_ID to X Y.
+User has dragged the object with id `DRAG_ID` to `X` `Y`.
 
 *`drop DRAG_ID [TARGET_ID]`*
 
-User has dropped the object with id DRAG_ID. If TARGET_ID is given, the object was dropped on top of the object with id TARGET_ID.
+User has dropped the object with id `DRAG_ID`. If `TARGET_ID` is given, the object was dropped on top of the object with id `TARGET_ID`.
 
 *`click ID`*
 
-User has clicked on object with id ID.
+User has clicked on object with id `ID`.
 
 *`</tt>doubleclick ID</b>
 
-User has doubleclicked on object with id ID.
+User has doubleclicked on object with id `ID`.
 
 *`quit`*
 

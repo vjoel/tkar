@@ -21,17 +21,12 @@ Tkar is a Tk/ruby-based animation program using TkCanvas. It accepts command inp
 
 ### Tkar command summary
 
-option| values
+command| effect
 ------| ------
-
 _shape_| define shape in terms of primitives (Tk Canvas objects). Shape may expose any Tk parameters (e.g, colors, lengths of poly sides)
-
 _add_| add object to canvas with specified shape, layer, position, rotation, params
-
 _move_, _rotate_, _scale_, _delete_| operate on existing object
-
 _param_| change param value of an object (e.g. change color or geometry over time; change arrow shape because endpoint moves)
-
 utilities| _wait_ (playback with specified frame rate), _update_ (end of time step), set window _params_ (color, size, zoom), _follow_ a specified object, _load_ file (like #include)
 
 ### User interaction
@@ -88,6 +83,8 @@ There are three transport options:
 
 1. Over pipe
 
+  Invoke as
+
       cat data | tkar
 
   or
@@ -102,6 +99,8 @@ There are three transport options:
 
 2. Over TCP socket
 
+  Invoke as
+
       tkar [<ipaddr>] <port>
 
   - bidirectional; client can block waiting for update to finish
@@ -113,6 +112,8 @@ There are three transport options:
   - can still write filters by using netcat
 
 3. Over unix domain socket
+
+  Invoke as
 
       tkar /path/to/socket
 
