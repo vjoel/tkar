@@ -1,0 +1,179 @@
+tkar 0.64
+
+- move to github; standardize release tasks; update docs
+
+tkar 0.63
+
+- Use bones and git.
+
+tkar 0.62
+
+- Added window_xy command.
+
+tkar 0.61
+
+- Permit CR chars after line continuation backslash.
+
+tkar 0.60
+
+- Fixed bug in simulink block: turn off verbose if stderr can't go to
+  either console or file, otherwise rubyw dies without exception.
+
+- Fixed bug in tkar/window.rb: sometimes drag_start is nil during draw_proc.
+
+- Performance improvement to simulink block: only wait for update response
+  if simulation is more than one step ahead of animation.
+
+- Added --version, lib/version.rb, and rake targets for maintaining this file.
+
+tkar 0.59
+
+- Minor doc updates for the simulink block.
+
+tkar 0.58
+
+- In --persist case, always update canvas on input EOF.
+
+tkar 0.57
+
+- Added mkgrid.rb.
+
+tkar 0.56
+
+- Updated protocol.txt.
+
+tkar 0.55
+
+- Added echo command.
+
+tkar 0.54
+
+- Added sample/dial.rb.
+
+- Option shortcuts: "fill" == "fc", and so on.
+
+tkar 0.53
+
+- Fixed problem in scale command.
+
+- Minor cleanup.
+
+tkar 0.52
+
+- Added delete_all and scale commands.
+
+tkar 0.51
+
+- Added tkar_period parameter to simulink block and tkar.c.
+
+- Refectored all state in tkar.c into TkarState struct.
+
+tkar 0.50
+
+- No more static data in tkar.c.
+
+tkar 0.49
+
+- Added more messages in verbose case.
+
+tkar 0.48
+
+- Added the "disable" parameter to tkar block.
+
+tkar 0.47
+
+- Fixed a dragging bug (clicking and dragging quickly allowed the mouse to
+  move outside the object).
+
+tkar 0.46
+
+- simulink/tkar.c now waits for "update"
+
+- consolidated docs
+
+tkar 0.45
+
+- Merged readme files into tkar.txt
+
+- Added protocol.txt.
+
+- Fixed bug in hovering over non-filled shape.
+
+- Fixed bug in layering code.
+
+tkar 0.44
+
+- Added tkarlib.mdl and slblocks.m to simulink/.
+
+- Added verbose param to tkar block
+
+tkar 0.43
+
+- Migrated to argos for argv option parsing.
+
+tkar 0.42
+
+- Preprocess floats "1234.00" --> "1234" so floats can be used for colors.
+
+- Accept backslash for line continuation.
+
+- Load command tries relative path after trying absolute.
+
+tkar 0.41
+
+- Added the simulink dir to project.
+
+tkar 0.40
+
+- Added the --persist, --radians, and --flip options.
+
+- Internally, angles are now stored in radians.
+
+- Added "load" and "exit" commands.
+
+tkar 0.39
+
+- Added --stderr option.
+
+- Impoved docs.
+
+tkar 0.38
+
+- Added help button.
+
+- Improved help window text.
+
+- Support for MouseWheel on MSWindows.
+
+tkar 0.37
+
+- Added help window.
+
+tkar 0.36
+
+- Support for TkcImages.
+
+tkar 0.35
+
+- improved dragging and scrolling
+
+tkar 0.34
+
+- added "bounds" command
+
+tkar 0.33
+
+- improvements to drag and drop
+
+tkar 0.32
+
+- added movie creation
+
+tkar 0.31
+
+- added -c flag
+
+tkar 0.30
+
+- First general release.
+

@@ -1,0 +1,104 @@
+#!/usr/bin/env ruby
+
+local_lib_dir = File.join(File.dirname(File.dirname(__FILE__)), "lib")
+
+if ARGV.delete("--local-lib")
+  $LOAD_PATH.unshift local_lib_dir
+end
+
+require 'tkar/argos'
+
+optdef = {
+  "b"         => true,
+  "c"         => true,
+  "h"         => true,
+  "help"      => true,
+  "v"         => true,
+  "persist"   => true,
+  "radians"   => true,
+  "flip"      => true,
+  "stderr"    => proc {|arg| arg},
+  "version"   => true
+}
+
+opts = Argos.parse_options(ARGV, optdef)
+
+stderr_file = opts["stderr"]
+if stderr_file
+  begin
+    $stderr = File.open(stderr_file, "w")
+  rescue
+    $stderr.puts "Warning: could not open #{stderr_file} for writing."
+  end
+end
+
+$0 = "tkar"
+
+if opts["h"] or opts["help"]
+  puts <<-END
+  
+  #{$0} [options] [addr] [port]
+    
+    Start a tkar animation process. Its inputs and outputs are one of:
+    
+      stdin/stdout: this is the default
+      
+      TCP socket:   if port is given (addr default is 127.0.0.1)
+      
+      UNIX socket:  if addr only is given
+    
+    Options:
+    
+      -b            turns on binary protocol mode, otherwise uses ascii
+      
+      -c            act as client instead of server [socket cases only];
+                    attempts to connect to specified address
+    
+      -h            this help
+      --help
+      
+      -v            be verbose
+      
+      --version     print version information and exit
+      
+      --local-lib   look for tkar lib files at path relative to this
+                    program (currently, #{local_lib_dir})
+      
+      --persist     keep window open after finishing (even in
+                    case of errors)
+      
+      --radians     accept rotation input in radians instead of degrees;
+                    doesn't affect coords inside shapes
+      
+      --flip        flips the global y axis, affecting both input
+                    and output; doesn't affect coords inside shapes
+
+  END
+  exit
+end
+
+if opts["version"]
+  require 'tkar/version'
+  puts Tkar::Version
+  exit
+end
+
+require 'tkar'
+
+# so io errors kill the whole process instead of just one thread.
+Thread.abort_on_exception = true
+
+if defined?(REQUIRE2LIB) # for rubyscript2exe
+  require 'tk/root'
+  require 'tk/frame'
+  require 'tk/bindtag'
+  require 'tk/pack'
+  require 'tk/grid'
+  require 'tk/scrollbar'
+  require 'tk/virtevent'
+  require 'tk/timer'
+  require 'tk/variable'
+  exit
+end
+
+Tkar.run(ARGV, opts)
