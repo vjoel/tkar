@@ -1,0 +1,26 @@
+# Rotation is not a built-in operation in TkCanvas, but it is in tkar.
+# Run like:
+# 
+# cat rotate | tkar
+
+shape box poly0,0,10,0,10,10,0,10,fc:green,oc:red
+
+add box 3 - 4 50 20 0
+update
+
+wait 1.0
+rot 3 45
+update
+
+wait 1.0
+rot 3 90
+update
+
+wait 1.0
+rot 3 135
+update
+
+wait 1.0
+rot 3 180
+update
+

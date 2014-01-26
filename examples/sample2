@@ -1,0 +1,48 @@
+# A very simple animation. Run like this:
+#
+# cat sample2 | tkar --persist
+
+# Global settings for the window
+title sample2
+height 500
+width 500
+bg azure1
+
+# -------------------------------------------------------------------------
+# Shape definitions
+shape box2 poly0,0,50,0,50,20,0,20,fc:red,oc:blue
+
+# -------------------------------------------------------------------------
+# Add some shapes
+# -------------------------------------------------------------------------
+#     SHAPE_NAME      ID  FLAGS   LAYER     X     Y   R    PARAMS...
+
+add   box2             1      -     100    10    10   0
+
+# -------------------------------------------------------------------------
+# draw them
+update
+
+# -------------------------------------------------------------------------
+# animate
+
+wait 1.0
+move 1 20 20
+rot 1 10
+update
+
+wait 1.0
+move 1 30 30
+rot 1 20
+update
+
+wait 1.0
+move 1 40 40
+rot 1 30
+update
+
+wait 1.0
+move 1 50 50
+rot 1 40
+update
+

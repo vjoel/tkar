@@ -1,0 +1,57 @@
+# A very simple animation. Run like this:
+#
+# cat sample3 | tkar --persist
+#
+# Note the use of time-varying color params.
+
+# Global settings for the window
+title sample3
+height 500
+width 500
+bg azure1
+
+# -------------------------------------------------------------------------
+# Shape definitions
+shape box3 poly0,0,*0,0,*0,*1,0,*1,fc:*2,oc:*3,width:5
+
+# -------------------------------------------------------------------------
+# Add some shapes
+# -------------------------------------------------------------------------
+#     SHAPE_NAME      ID  FLAGS   LAYER     X     Y    R  PARAMS...
+
+add   box3             1      -     100    10    10    0  50 20 red blue
+
+# -------------------------------------------------------------------------
+# draw them
+update
+
+# -------------------------------------------------------------------------
+# animate
+
+wait 1.0
+move 1 20 20
+rot 1 10
+update
+
+wait 1.0
+move 1 30 30
+rot 1 20
+update
+
+wait 1.0
+move 1 40 40
+rot 1 30
+# set width
+param 1 0 100
+update
+
+wait 1.0
+move 1 50 50
+rot 1 40
+# set fill color
+param 1 2 #F0A020
+# set outline color
+param 1 3 DarkOrchid
+update
+
+
