@@ -126,7 +126,7 @@ The parts can be primitives (discussed below) or other shapes that have already 
 
 Each PART is of the form:
 
-  partnameARG,ARG,ARG,....
+    partnameARG,ARG,ARG,....
 
 There are no spaces (or line continuations) within the entire PART.
 
@@ -134,13 +134,13 @@ The following rules apply:
 
 - `partname` can be the name of a primitive or of another shape. In the latter case, the other shape acts as a _macro_, expanding its own primitives within the shape being defined. For example:
 
-    shape foo line0,0,10,10
-    shape bar foo
+      shape foo line0,0,10,10
+      shape bar foo
 
   is equivalent to
 
-    shape foo line0,0,10,10
-    shape bar line0,0,10,10
+      shape foo line0,0,10,10
+      shape bar line0,0,10,10
 
   Any (finite!) number of macros can be nested. Macros may take arguments; see the section on parametrized shapes.
 
@@ -148,21 +148,21 @@ The following rules apply:
 
 - The _positional_ arguments (i.e., the arguments whose meaning derives from their index in the list of arguments) of a primitive are appended to the name of the primitive *without any separating spaces or other characters*. For example:
 
-    shape label text0,50
+      shape label text0,50
 
   Positional arguments are almost always coordinates, distances, or angles.
 
 - The _key_-_value_ arguments (i.e., the arguments whose meaning derives from the key string paired with the value), if any, are appended after the positional arguments. They may occur in any order. The key and value are separated by a colon. For example:
 
-    shape label text0,50,anchor:c,justify:center,width:40,text:Untitled,fc:0
+      shape label text0,50,anchor:c,justify:center,width:40,text:Untitled,fc:0
 
 - In some cases, a single argument must be used to designate a list. In those cases, the "+" character is used to separate the values. For example, as an argument to a line primitive, the following denotes a list of three numbers, 10, 8, and 6, as the value for the arrowshape option:
 
-    shape arrow line0,0,*0,0,arrow:last,arrowshape:10+8+6
+      shape arrow line0,0,*0,0,arrow:last,arrowshape:10+8+6
 
 - If only key-value arguments are present, use a comma to separate the first argument from the name of the shape:
 
-    shape car carbox,fc:red
+      shape car carbox,fc:red
 
 - In some cases, a value might need to include spaces (text, for example). In that case, use a parameter for that value and use the `param` command to set the actual value. See the `text` command entry.
 
@@ -253,27 +253,27 @@ A list of color names is at http://www.tcl.tk/man/tcl8.4/TkCmd/colors.htm. Examp
 
 The following options apply to most primitives (each option has a shortcut, which is listed second).
 
-====*`fill:COLOR`*
+#### *`fill:COLOR`*
 
-====*`fc:COLOR`*
+#### *`fc:COLOR`*
 
 Set the fill color of the primitive.
 
-====*`outline:COLOR`*
+#### *`outline:COLOR`*
 
-====*`oc:COLOR`*
+#### *`oc:COLOR`*
 
 Set the outline color of the primitive.
 
-====*`width:WIDTH`*
+#### *`width:WIDTH`*
 
-====*`wi:WIDTH`*
+#### *`wi:WIDTH`*
 
 Set the line (or outline) width.
 
-====*`dash:DASH_TYPE`*
+#### *`dash:DASH_TYPE`*
 
-====*`da:DASH_TYPE`*
+#### *`da:DASH_TYPE`*
 
 Set the dash type for the line (or outline). The value can be an integer or a string. See http://www.tcl.tk/man/tcl8.4/TkCmd/canvas.htm#M27. For example,
 
@@ -281,9 +281,9 @@ Set the dash type for the line (or outline). The value can be an integer or a st
 
 produces a nice dashed line to represent the lines between lanes in a roadway. The 4 means 4 pixels without color; the 8 means 8 pixels with the specified outline color. Tk accepts any sequence of digits, but not all platforms support all sequences.
 
-====*`stipple:STIPPLE_TYPE`*
+#### *`stipple:STIPPLE_TYPE`*
 
-====*`st:STIPPLE_TYPE`*
+#### *`st:STIPPLE_TYPE`*
 
 Set the stipple type for the region. See http://www.tcl.tk/man/tcl8.4/TkCmd/canvas.htm#M111. (This is not very useful.)
 

@@ -21,15 +21,18 @@ Tkar is a Tk/ruby-based animation program using TkCanvas. It accepts command inp
 
 ### Tkar command summary
 
-_shape_:: define shape in terms of primitives (Tk Canvas objects). Shape may expose any Tk parameters (e.g, colors, lengths of poly sides)
+option| values
+------| ------
 
-_add_:: add object to canvas with specified shape, layer, position, rotation, params
+_shape_| define shape in terms of primitives (Tk Canvas objects). Shape may expose any Tk parameters (e.g, colors, lengths of poly sides)
 
-_move_, _rotate_, _scale_, _delete_:: operate on existing object
+_add_| add object to canvas with specified shape, layer, position, rotation, params
 
-_param_:: change param value of an object (e.g. change color or geometry over time; change arrow shape because endpoint moves)
+_move_, _rotate_, _scale_, _delete_| operate on existing object
 
-utilities:: _wait_ (playback with specified frame rate), _update_ (end of time step), set window _params_ (color, size, zoom), _follow_ a specified object, _load_ file (like #include)
+_param_| change param value of an object (e.g. change color or geometry over time; change arrow shape because endpoint moves)
+
+utilities| _wait_ (playback with specified frame rate), _update_ (end of time step), set window _params_ (color, size, zoom), _follow_ a specified object, _load_ file (like #include)
 
 ### User interaction
 
@@ -56,11 +59,11 @@ For other platforms: http://www.ruby-lang.org
 
 ### Gem installation
 
-  gem install tkar
+      gem install tkar
 
 Alternately, you can download the source code (tar ball or git repo) and run it in place using the <tt>--local-lib</tt> command line option
 
-  bin/tkar --local-lib
+      bin/tkar --local-lib
 
 
 ## Usage
