@@ -115,20 +115,19 @@ The basic syntax of a shape definition is:
 
 *`shape SHAPE_NAME PART0 PART1 PART2...`*
 
-This defines a new shape with specified SHAPE_NAME, which may be any string without whitespace. The PART strings are one or more space-free strings defining
-the parts of the shape.
+This defines a new shape with specified `SHAPE_NAME`, which may be any string without whitespace. The `PART` strings are one or more space-free strings defining the parts of the shape.
 
-The order of the PARTs is significant: later parts are drawn after, and therefore appear to be above the earlier parts.
+The order of the `PART`s is significant: later parts are drawn after, and therefore appear to be above the earlier parts.
 
 The parts can be primitives (discussed below) or other shapes that have already been defined.
 
 ### Part Syntax
 
-Each PART is of the form:
+Each `PART` is of the form:
 
     partnameARG,ARG,ARG,....
 
-There are no spaces (or line continuations) within the entire PART.
+There are no spaces (or line continuations) within the entire `PART`.
 
 The following rules apply:
 

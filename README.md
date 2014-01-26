@@ -27,7 +27,11 @@ _shape_| define shape in terms of primitives (Tk Canvas objects). Shape may expo
 _add_| add object to canvas with specified shape, layer, position, rotation, params
 _move_, _rotate_, _scale_, _delete_| operate on existing object
 _param_| change param value of an object (e.g. change color or geometry over time; change arrow shape because endpoint moves)
-utilities| _wait_ (playback with specified frame rate), _update_ (end of time step), set window _params_ (color, size, zoom), _follow_ a specified object, _load_ file (like #include)
+_wait_| playback with specified frame rate
+_update_| finish time step
+_params_| set window params (color, size, zoom)
+_follow_| follow a specified object
+_load_| load file (like #include)
 
 ### User interaction
 
