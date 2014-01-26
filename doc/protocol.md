@@ -167,7 +167,7 @@ The following rules apply:
 
 ### Parametrized shapes
 
-If a string of the form `*N`, where N is a sequence of digits, occurs in a shape definition, then the shape is parametric. Parameters are not named and can only be referred to by the number `N`.
+If a string of the form `*N`, where `N` is a sequence of digits, occurs in a shape definition, then the shape is parametric. Parameters are not named and can only be referred to by the number `N`.
 
 In an `add` command, the `N`-th parameter supplied with the command is substituted into all places where `*N` appears in the shape definition. For example, the commands:
 
@@ -521,7 +521,7 @@ User has dropped the object with id `DRAG_ID`. If `TARGET_ID` is given, the obje
 
 User has clicked on object with id `ID`.
 
-*`</tt>doubleclick ID</b>
+*`doubleclick ID`*
 
 User has doubleclicked on object with id `ID`.
 
