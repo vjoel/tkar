@@ -1,0 +1,67 @@
+switch for protocol N, if protocol changes
+
+make most add arguments optional
+
+height/width broken after user resizes
+
+set select/hover colors
+
+set radian/degrees, flip y
+
+examples for web site
+  screen shots
+
+new options:
+
+  --flip-shape --radian-shape
+  
+  --flip-gobal --radian-global [ replaces --flip and --radians ]
+
+  --flip --radians [ implies both of above, resp. ]
+  
+  OR: do these as commands rather than options !!!
+
+new kind of object: connector
+
+  connects and moves with n normal objects
+
+  defined in terms of a shape which has 3*n params: x,y,r of each part
+  
+    also xdelta and ydelta, in each part's local coord sys?
+  
+  instantiated by passing ids of n objects, plus any add'l params
+  
+  when objects move, connector's params are changed accordingly, reshaping it
+  
+  (even when objects dragged in gui)
+  
+  when connector is dragged, objects are dragged with it (?)
+  
+  a connector with n==1 is a useful special case (control point, port, etc.)
+  
+
+
+constrained drag motion, drop targets (per individual object)
+
+  constrain by ID(s) of object(s) that drag must stay within
+
+object flags
+
+  draggable, hoverable, etc
+
+import shapes from .svg, so you can draw them in Dia, etc.
+
+documentation
+
+  shape vs global coords
+  
+  how to write line labels in simulink
+  
+  tutorial
+  
+    - simplest possible animation
+    
+    - more complex shapes
+    
+    - more complex motion
+    
