@@ -122,7 +122,7 @@ The order of the PARTs is significant: later parts are drawn after, and therefor
 
 The parts can be primitives (discussed below) or other shapes that have already been defined.
 
-=== Part Syntax
+### Part Syntax
 
 Each PART is of the form:
 
@@ -166,7 +166,7 @@ The following rules apply:
 
 - In some cases, a value might need to include spaces (text, for example). In that case, use a parameter for that value and use the `param` command to set the actual value. See the `text` command entry.
 
-=== Parametrized shapes
+### Parametrized shapes
 
 If a string of the form `*N`, where N is a sequence of digits, occurs in a shape definition, then the shape is parametric. Parameters are not named and can only be referred to by the number `N`.
 
@@ -218,7 +218,7 @@ Points to bear in mind when reading the Tk documentation:
 
 - The object ID is handled by Tk as a _tag_.
 
-=== Coordinates
+### Coordinates
 
 The coordinate system while defining shapes always has the following characteristics, regardless of the `--flip` and `--radians` command-line arguments:
 
@@ -232,7 +232,7 @@ All primitives in the shape definition use this same coordinate system.
 
 The coordinate system used when _adding_ objects to the canvas or moving them is different, and the orientation and units depend on the `--flip` and `--radians` options.
 
-=== Colors
+### Colors
 
 Color can be specified by name or by numeric value, using one of the notations
 
@@ -249,7 +249,7 @@ A list of color names is at http://www.tcl.tk/man/tcl8.4/TkCmd/colors.htm. Examp
       #EECC66
       #F0F
 
-=== Generic options
+### Generic options
 
 The following options apply to most primitives (each option has a shortcut, which is listed second).
 
@@ -287,11 +287,11 @@ produces a nice dashed line to represent the lines between lanes in a roadway. T
 
 Set the stipple type for the region. See http://www.tcl.tk/man/tcl8.4/TkCmd/canvas.htm#M111. (This is not very useful.)
 
-=== Primitives
+### Primitives
 
 The primitives are the basic shapes from which user-defined shapes are built.
 
-==== arc
+#### arc
 
 *`arcX,Y,W,H,key:val...`*
 
@@ -306,13 +306,12 @@ Options (in addition to the generic options) are:
 option| values
 ------| ------
 `extent:angle`|  angular span of the arc
-`start:angle`|   angle of rotation of the arc, measured
-                         _counterclockwise_ from the positive x-axis
+`start:angle`|   angle of rotation of the arc, measured _counterclockwise_ from the positive x-axis
 `style:sty`|     `pieslice`, `chord`, or `arc`
 
 See http://www.tcl.tk/man/tcl8.4/TkCmd/canvas.htm#M119
 
-==== line
+#### line
 
 *`lineX1,Y1,X2,Y2...,key:val...`*
 
@@ -335,7 +334,7 @@ option| values
 
 See http://www.tcl.tk/man/tcl8.4/TkCmd/canvas.htm#M139
 
-==== oval
+#### oval
 
 *`ovalX1,Y1,X2,Y2,key:val...`*
 
@@ -347,7 +346,7 @@ There are no options other than the generic options.
 
 See http://www.tcl.tk/man/tcl8.4/TkCmd/canvas.htm#M146
 
-==== rect
+#### rect
 
 *`rectX1,Y1,X2,Y2,key:val...`*
 
@@ -361,7 +360,7 @@ There are no options other than the generic options.
 
 See http://www.tcl.tk/man/tcl8.4/TkCmd/canvas.htm#M151
 
-==== poly
+#### poly
 
 *`polyX1,Y1,X2,Y2,...key:val...`*
 
@@ -379,7 +378,7 @@ option| values
 
 See http://www.tcl.tk/man/tcl8.4/TkCmd/canvas.htm#M147
 
-==== text
+#### text
 
 *`textX,Y,key:val...`*
 
@@ -399,7 +398,7 @@ option| values
 
 See http://www.tcl.tk/man/tcl8.4/TkCmd/canvas.htm#M152
 
-==== image
+#### image
 
 *`imageX,Y,key:val...`*
 
@@ -418,7 +417,7 @@ Note that tkar is smart about caching image data. The file is read once, no matt
 
 See http://www.tcl.tk/man/tcl8.4/TkCmd/canvas.htm#M134
 
-==== polybox
+#### polybox
 
 *`polyboxDX,DY`*
 
@@ -507,7 +506,7 @@ Most commands have abbreviated or alternate versions. The following list shows a
 
 Tkar sends outputs back on the stream to the controlling process. Typically this stream is either the stdout of tkar or a socket. Tkar also writes output to stderr.
 
-=== User command messages
+### User command messages
 
 Tkar sends back outputs as the result of user interaction. These output commands can be used to update the controlling program's model of the objects, or to implement simple GUI widgets (buttons, sliders, control points, etc.).
 
@@ -535,10 +534,10 @@ User has pressed Ctrl-q
 
 Update cycle has finished. This message is sent back out by tkar once for every update command that comes into tkar. This is useful to keep the two programs, tkar and the controlling program, in sync.
 
-=== Error messages
+### Error messages
 
 Error messages are also sent back to the controlling process on the stream.
 
-=== stderr messages
+### stderr messages
 
 Tkar uses stderr as a second destination for outputs, separate from the stream used by the controlling process. This is useful for diagnostics and logging. If the -v (verbose) command-line option is given, the stderr output copies all input commands. This can be used to create a replayable record of the animation. The stderr stream also includes error messages.

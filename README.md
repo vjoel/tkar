@@ -11,7 +11,7 @@ Additional documentation:
 
 Tkar is a Tk/ruby-based animation program using TkCanvas. It accepts command input from stdin or a socket. Commands may define parametrized shapes, place them on the canvas, move and rotate them, change parameters, etc. User interaction events (click, drag, etc) are sent back on the socket or stdout. The canvas can be resized, scrolled, zoomed, and tracked to an object.
 
-=== Graphical constructs
+### Graphical constructs
 
 * Shapes include: arc, oval, polygon, line, curve, text, bitmap. 
 
@@ -19,7 +19,7 @@ Tkar is a Tk/ruby-based animation program using TkCanvas. It accepts command inp
 
 * Can group, layer, rotate, move, and scale objects
 
-=== Tkar command summary
+### Tkar command summary
 
 _shape_:: define shape in terms of primitives (Tk Canvas objects). Shape may expose any Tk parameters (e.g, colors, lengths of poly sides)
 
@@ -31,7 +31,7 @@ _param_:: change param value of an object (e.g. change color or geometry over ti
 
 utilities:: _wait_ (playback with specified frame rate), _update_ (end of time step), set window _params_ (color, size, zoom), _follow_ a specified object, _load_ file (like #include)
 
-=== User interaction
+### User interaction
 
 * Use keys and mouse to zoom, pan/scroll, select, double-click, drag, drop, etc.
 
@@ -40,21 +40,21 @@ utilities:: _wait_ (playback with specified frame rate), _update_ (end of time s
 
 ## Installation
 
-=== Prerequisites
+### Prerequisites
 
-==== Tcl/Tk
+#### Tcl/Tk
 
 For windows: http://www.activestate.com/Products/ActiveTcl/
 
 For linux, just use your distribution's package tool to install tcl. However, you may need to make sure that ruby and linux both use (or do not use) the pthread library.
 
-==== Ruby
+#### Ruby
 
 For windows: http://rubyforge.org/projects/rubyinstaller/
 
 For other platforms: http://www.ruby-lang.org
 
-=== Gem installation
+### Gem installation
 
   gem install tkar
 
@@ -65,21 +65,21 @@ Alternately, you can download the source code (tar ball or git repo) and run it 
 
 ## Usage
 
-=== Command line
+### Command line
 
 See the -h command line option for details on running tkar.
 
 Examples are available with the source code--read the comments to see how to run.
 
-=== Tkar window
+### Tkar window
 
 Press the "h" key for on-line help using the tkar window.
 
-=== Protocol
+### Protocol
 
 See [protocol](doc/protocol.md) for details on the protocol and writing shape files.
 
-=== Integrating tkar with other applications
+### Integrating tkar with other applications
 
 There are three transport options:
 
