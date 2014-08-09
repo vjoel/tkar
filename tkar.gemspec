@@ -19,6 +19,8 @@ Gem::Specification.new do |s|
     "examples/**/*",
     "test/**/*.rb"
   ]
+  s.bindir = 'bin'
+  s.executables << 'tkar'
   s.test_files = Dir["test/*.rb"]
   s.homepage = "https://github.com/vjoel/tkar"
   s.license = "BSD"
